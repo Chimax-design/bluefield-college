@@ -18,6 +18,7 @@ import Index from '@/pages/index.vue'
 import payment from '@/pages/payment.vue'
 import philosphy from '@/pages/philosophy.vue'
 import profile from '@/pages/profile.vue'
+import registration from '@/pages/registration.vue'
 import result from '@/pages/result.vue'
 import Schactivity from '@/pages/schactivity.vue'
 import Schooloutings from '@/pages/schooloutings.vue'
@@ -180,6 +181,10 @@ const routes = [
   {
     path: '/teacherprofile',
     component: teacherprofile,
+  },
+  {
+    path: '/studentregister',
+    component: registration,
   },
 ]
 

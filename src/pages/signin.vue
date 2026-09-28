@@ -328,7 +328,10 @@
 
 <script setup>
   import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
   import { supabase } from '@/lib/supabaseClient.js'
+
+  const router = useRouter()
 
   const firstName = ref('')
   const lastName = ref('')
@@ -511,9 +514,14 @@
         alert(errorMessage.value)
         return
       }
-      // show sucess message
-      snackbar.value = true
-      clearForm()
+
+      // Save the application email temporarily
+      // so the registration page knows which application
+      // was just submitted.
+      sessionStorage.setItem('admissionEmail', email.value.trim())
+
+      // Go directly to student registration
+      await router.push('/studentregister')
     } catch (error) {
       console.error('Unexpected error:', error)
       alert(`Something went wrong: ${error.message}`)
@@ -538,7 +546,6 @@
 
     firstNameError.value = ''
     lastNameError.value = ''
-    admissionNumber.value = ''
     genderError.value = ''
     dobError.value = ''
     phoneError.value = ''
