@@ -17,7 +17,7 @@
   import schactivity from '@/pages/schactivity.vue'
   import schooloutings from '@/pages/schooloutings.vue'
   import services from '@/pages/services.vue'
-  import signin from '@/pages/sigin.vue'
+  import signin from '@/pages/signin.vue'
   import staff from '@/pages/staff.vue'
   import strategy from '@/pages/strategy.vue'
   import tuition from '@/pages/tution.vue'
