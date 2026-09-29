@@ -32,7 +32,6 @@
     <!-- MOBILE DRAWER -->
     <v-navigation-drawer
       v-model="drawer"
-      location="right"
       temporary
     >
       <v-btn
