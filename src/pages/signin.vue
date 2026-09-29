@@ -3,150 +3,17 @@
     <v-spacer />
 
     <v-layout>
-      <!-- NAVBAR -->
-      <v-app-bar color="info" density="compact" height="100">
-        <template #prepend>
-          <img
-            alt="Bluefield College Logo"
-            class="logo"
-            height="100"
-            src="/bluefield-logo.png"
-            width="100"
-          >
-        </template>
+      <!-- =========================
+           NAVBAR
+      ========================== -->
+      <AppNavbar />
 
-        <v-spacer />
-
-        <div class="d-flex justify-center" w-100>
-          <v-menu>
-            <template #activator="{ props }">
-              <v-btn v-bind="props">
-                Update
-              </v-btn>
-            </template>
-
-            <v-list>
-              <div class="d-flex flex-column">
-                <v-btn class="mb-2" to="/schooloutings">
-                  School Outings
-                </v-btn>
-
-                <v-btn class="mb-2" to="/academicevents">
-                  Academic Event
-                </v-btn>
-
-                <v-btn class="mb-2" to="/schactivity">
-                  School Activities
-                </v-btn>
-              </div>
-            </v-list>
-          </v-menu>
-
-          <v-menu>
-            <template #activator="{ props }">
-              <v-btn v-bind="props">
-                About Us
-              </v-btn>
-            </template>
-
-            <v-list>
-              <div class="d-flex flex-column">
-                <v-btn class="mb-2" to="/whyus">
-                  Why Bluefiled College
-                </v-btn>
-
-                <v-btn class="mb-2" to="/strategy">
-                  Strategy 2030
-                </v-btn>
-
-                <v-btn class="mb-2" to="/philosophy">
-                  Philosophy
-                </v-btn>
-
-                <v-btn class="mb-2" to="/vandm">
-                  Our Vision and Mision
-                </v-btn>
-
-                <v-btn class="mb-2" to="/aboutus">
-                  About Bluefield College
-                </v-btn>
-              </div>
-            </v-list>
-          </v-menu>
-
-          <v-menu>
-            <template #activator="{ props }">
-              <v-btn v-bind="props">
-                Admissions
-              </v-btn>
-            </template>
-
-            <v-list>
-              <div class="d-flex flex-column">
-                <v-btn class="mb-2" to="/admission">
-                  Admission Requirements
-                </v-btn>
-
-                <v-btn class="mb-2" to="/tuition">
-                  Tuition & Fees
-                </v-btn>
-              </div>
-            </v-list>
-          </v-menu>
-
-          <v-menu>
-            <template #activator="{ props }">
-              <v-btn v-bind="props">
-                Administration
-              </v-btn>
-            </template>
-
-            <v-list>
-              <div class="d-flex flex-column">
-                <v-btn class="mb-2" to="/administraoff">
-                  Administrative Offices
-                </v-btn>
-
-                <v-btn class="mb-2" to="/staff">
-                  Department & Staff
-                </v-btn>
-
-                <v-btn class="mb-2" to="/calendar">
-                  Academic Calendar
-                </v-btn>
-
-                <v-btn class="mb-2" to="/Contact">
-                  Contact Us
-                </v-btn>
-              </div>
-            </v-list>
-          </v-menu>
-
-          <v-menu>
-            <template #activator="{ props }">
-              <v-btn v-bind="props">
-                School Services
-              </v-btn>
-            </template>
-
-            <v-list>
-              <div class="d-flex flex-column">
-                <v-btn class="mb-2" to="/upload">
-                  Make payment
-                </v-btn>
-
-                <v-btn class="mb-2" to="/services">
-                  Services
-                </v-btn>
-              </div>
-            </v-list>
-          </v-menu>
-        </div>
-      </v-app-bar>
-
-      <!-- MAIN -->
+      <!-- =========================
+           MAIN CONTENT
+      ========================== -->
       <v-main>
         <v-container>
+          <!-- PAGE HEADER -->
           <v-card
             class="pa-16 mb-6"
             color="primary"
@@ -155,171 +22,164 @@
             <v-card-title class="text-h4 text-center">
               Bluefield College Online Admission Form
             </v-card-title>
-
-            <v-card
-              class="pa-16 mb-6"
-              elevation="3"
-            >
-              <!-- STUDENT INFORMATION -->
-
-              <v-text-field
-                v-model="firstName"
-                :error-messages="firstNameError"
-                label="First Name"
-                required
-              />
-
-              <v-text-field
-                v-model="lastName"
-                :error-messages="lastNameError"
-                label="Last Name"
-                required
-              />
-
-              <v-text-field
-                v-model="admissionNumber"
-                label="Student Admission Number"
-                required
-              />
-
-              <v-select
-                v-model="gender"
-                :error-messages="genderError"
-                :items="['Male', 'Female']"
-                label="Gender"
-                required
-              />
-
-              <v-text-field
-                v-model="dob"
-                :error-messages="dobError"
-                label="Date of Birth"
-                required
-                type="date"
-              />
-
-              <v-text-field
-                v-model="phone"
-                :error-messages="phoneError"
-                inputmode="numeric"
-                label="Phone Number"
-                maxlength="11"
-                required
-                type="tel"
-                @input="onlyNumbers(phone, 'phone')"
-              />
-
-              <v-text-field
-                v-model="email"
-                :error-messages="emailError"
-                label="Email Address"
-                required
-                type="email"
-              />
-
-              <v-textarea
-                v-model="address"
-                :error-messages="addressError"
-                label="Home Address"
-                required
-              />
-
-              <v-text-field
-                v-model="previousSchool"
-                label="Previous School"
-              />
-
-              <v-select
-                v-model="applyingClass"
-                :error-messages="applyingClassError"
-                :items="[
-                  'Creche',
-                  'Nursery 1',
-                  'Nursery 2',
-                  'Primary1',
-                  'Primary2',
-                  'Primary3',
-                  'Primary4',
-                  'Primary5',
-                  'Primary6 (optional)',
-                  'JSS1',
-                  'JSS2',
-                  'JSS3',
-                  'SS1',
-                  'SS2',
-                  'SS3'
-                ]"
-                label="Class Applying For"
-                required
-              />
-
-              <v-divider class="my-5" />
-
-              <h3>Parent / Guardian Information</h3>
-
-              <v-text-field
-                v-model="guardianName"
-                :error-messages="guardianNameError"
-                label="Guardian Name"
-                required
-              />
-
-              <v-text-field
-                v-model="guardianPhone"
-                :error-messages="guardianPhoneError"
-                inputmode="numeric"
-                label="Guardian Phone"
-                maxlength="11"
-                required
-                type="tel"
-                @input="onlyNumbers(guardianPhone, 'guardianPhone')"
-              />
-
-              <v-file-input
-                v-model="passport"
-                accept="image/*"
-                label="Upload Passport Photograph"
-              />
-
-              <!-- BUTTONS -->
-
-              <v-row class="mt-4">
-                <v-col>
-                  <v-btn
-                    block
-                    color="success"
-                    @click="submitApplication"
-                  >
-                    Submit Application
-                  </v-btn>
-                </v-col>
-
-                <v-col>
-                  <v-btn
-                    block
-                    color="red"
-                    @click="clearForm"
-                  >
-                    Clear
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </v-card>
-
-            <!-- SUCCESS MESSAGE -->
-
-            <v-snackbar
-              v-model="snackbar"
-              color="green"
-              timeout="5000"
-            >
-              🎉 Thank you for applying to Bluefield College.
-
-              Your admission application has been submitted successfully.
-
-              Our admissions office will contact you after reviewing your application.
-            </v-snackbar>
           </v-card>
+          <!-- ADMISSION FORM -->
+          <v-card
+            class="pa-16 mb-6"
+            elevation="3"
+          >
+            <!-- =========================
+                 STUDENT INFORMATION
+            ========================== -->
+            <v-text-field
+              v-model="firstName"
+              :error-messages="firstNameError"
+              label="First Name"
+              required
+            />
+
+            <v-text-field
+              v-model="lastName"
+              :error-messages="lastNameError"
+              label="Last Name"
+              required
+            />
+
+            <v-text-field
+              v-model="admissionNumber"
+              label="Student Admission Number"
+              required
+            />
+
+            <v-select
+              v-model="gender"
+              :error-messages="genderError"
+              :items="['Male', 'Female']"
+              label="Gender"
+              required
+            />
+
+            <v-text-field
+              v-model="dob"
+              :error-messages="dobError"
+              label="Date of Birth"
+              required
+              type="date"
+            />
+
+            <v-text-field
+              v-model="phone"
+              :error-messages="phoneError"
+              inputmode="numeric"
+              label="Phone Number"
+              maxlength="11"
+              required
+              type="tel"
+              @input="onlyNumbers(phone, 'phone')"
+            />
+
+            <v-text-field
+              v-model="email"
+              :error-messages="emailError"
+              label="Email Address"
+              required
+              type="email"
+            />
+
+            <v-textarea
+              v-model="address"
+              :error-messages="addressError"
+              label="Home Address"
+              required
+            />
+
+            <v-text-field
+              v-model="previousSchool"
+              label="Previous School"
+            />
+
+            <v-select
+              v-model="applyingClass"
+              :error-messages="applyingClassError"
+              :items="classOptions"
+              label="Class Applying For"
+              required
+            />
+
+            <!-- =========================
+                 PARENT / GUARDIAN
+            ========================== -->
+            <v-divider class="my-5" />
+
+            <h3>Parent / Guardian Information</h3>
+
+            <v-text-field
+              v-model="guardianName"
+              :error-messages="guardianNameError"
+              label="Guardian Name"
+              required
+            />
+
+            <v-text-field
+              v-model="guardianPhone"
+              :error-messages="guardianPhoneError"
+              inputmode="numeric"
+              label="Guardian Phone"
+              maxlength="11"
+              required
+              type="tel"
+              @input="onlyNumbers(guardianPhone, 'guardianPhone')"
+            />
+
+            <!-- =========================
+                 PASSPORT
+            ========================== -->
+            <v-file-input
+              v-model="passport"
+              accept="image/*"
+              label="Upload Passport Photograph"
+            />
+
+            <!-- =========================
+                 BUTTONS
+            ========================== -->
+            <v-row class="mt-4">
+              <v-col>
+                <v-btn
+                  block
+                  color="success"
+                  @click="submitApplication"
+                >
+                  Submit Application
+                </v-btn>
+              </v-col>
+
+              <v-col>
+                <v-btn
+                  block
+                  color="red"
+                  @click="clearForm"
+                >
+                  Clear
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
+
+          <!-- =========================
+               SUCCESS MESSAGE
+          ========================== -->
+          <v-snackbar
+            v-model="snackbar"
+            color="green"
+            timeout="5000"
+          >
+            🎉 Thank you for applying to Bluefield College.
+
+            Your admission application has been submitted successfully.
+
+            Our admissions office will contact you after reviewing your application.
+          </v-snackbar>
         </v-container>
       </v-main>
     </v-layout>
@@ -329,9 +189,15 @@
 <script setup>
   import { ref } from 'vue'
   import { useRouter } from 'vue-router'
+
+  import AppNavbar from '@/components/AppNavbar.vue'
   import { supabase } from '@/lib/supabaseClient.js'
 
   const router = useRouter()
+
+  // =========================
+  // FORM FIELDS
+  // =========================
 
   const firstName = ref('')
   const lastName = ref('')
@@ -346,10 +212,18 @@
   const guardianName = ref('')
   const guardianPhone = ref('')
   const passport = ref([])
+
+  // =========================
+  // FORM STATE
+  // =========================
+
   const snackbar = ref(false)
   const errorMessage = ref('')
 
-  // Error messages
+  // =========================
+  // ERROR MESSAGES
+  // =========================
+
   const firstNameError = ref('')
   const lastNameError = ref('')
   const genderError = ref('')
@@ -361,7 +235,32 @@
   const guardianNameError = ref('')
   const guardianPhoneError = ref('')
 
-  // Numbers only
+  // =========================
+  // CLASS OPTIONS
+  // =========================
+
+  const classOptions = [
+    'Creche',
+    'Nursery 1',
+    'Nursery 2',
+    'Primary1',
+    'Primary2',
+    'Primary3',
+    'Primary4',
+    'Primary5',
+    'Primary6 (optional)',
+    'JSS1',
+    'JSS2',
+    'JSS3',
+    'SS1',
+    'SS2',
+    'SS3',
+  ]
+
+  // =========================
+  // NUMBERS ONLY
+  // =========================
+
   function onlyNumbers (value, field) {
     const numbersOnly = value.replace(/\D/g, '')
 
@@ -374,9 +273,12 @@
     }
   }
 
-  // Submit
+  // =========================
+  // SUBMIT APPLICATION
+  // =========================
+
   async function submitApplication () {
-    // Remove old errors
+    // Clear previous errors
     firstNameError.value = ''
     lastNameError.value = ''
     genderError.value = ''
@@ -390,26 +292,31 @@
 
     let valid = true
 
+    // First name
     if (!firstName.value.trim()) {
       firstNameError.value = 'First name is required.'
       valid = false
     }
 
+    // Last name
     if (!lastName.value.trim()) {
       lastNameError.value = 'Last name is required.'
       valid = false
     }
 
+    // Gender
     if (!gender.value) {
       genderError.value = 'Please select a gender.'
       valid = false
     }
 
+    // Date of birth
     if (!dob.value) {
       dobError.value = 'Date of birth is required.'
       valid = false
     }
 
+    // Phone
     if (!phone.value) {
       phoneError.value = 'Phone number is required.'
       valid = false
@@ -418,6 +325,7 @@
       valid = false
     }
 
+    // Email
     if (!email.value.trim()) {
       emailError.value = 'Email address is required.'
       valid = false
@@ -426,37 +334,45 @@
       valid = false
     }
 
+    // Address
     if (!address.value.trim()) {
       addressError.value = 'Home address is required.'
       valid = false
     }
 
+    // Applying class
     if (!applyingClass.value) {
-      applyingClassError.value = 'Please select the class you are applying for.'
+      applyingClassError.value
+        = 'Please select the class you are applying for.'
       valid = false
     }
 
+    // Guardian name
     if (!guardianName.value.trim()) {
       guardianNameError.value = 'Guardian name is required.'
       valid = false
     }
 
+    // Guardian phone
     if (!guardianPhone.value) {
       guardianPhoneError.value = 'Guardian phone number is required.'
       valid = false
     } else if (guardianPhone.value.length !== 11) {
-      guardianPhoneError.value = 'Guardian phone number must contain 11 digits.'
+      guardianPhoneError.value
+        = 'Guardian phone number must contain 11 digits.'
       valid = false
     }
 
+    // Stop if validation fails
     if (!valid) {
       return
     }
 
     try {
-      // -----------------------------
-      // Upload passport
-      // -----------------------------
+      // =========================
+      // UPLOAD PASSPORT
+      // =========================
+
       let passportUrl = null
 
       const selectedFile = Array.isArray(passport.value)
@@ -465,7 +381,9 @@
 
       if (selectedFile) {
         const fileExt = selectedFile.name.split('.').pop()
-        const fileName = `${admissionNumber.value}-${Date.now()}.${fileExt}`
+
+        const fileName
+          = `${admissionNumber.value}-${Date.now()}.${fileExt}`
 
         const { error: uploadError } = await supabase.storage
           .from('passports')
@@ -473,7 +391,11 @@
 
         if (uploadError) {
           console.error('Passport upload error:', uploadError)
-          alert(`Passport upload failed: ${uploadError.message}`)
+
+          alert(
+            `Passport upload failed: ${uploadError.message}`,
+          )
+
           return
         }
 
@@ -484,9 +406,10 @@
         passportUrl = data.publicUrl
       }
 
-      // -----------------------------
-      // Save application
-      // -----------------------------
+      // =========================
+      // SAVE APPLICATION
+      // =========================
+
       const { error } = await supabase
         .from('applications')
         .insert({
@@ -505,31 +428,51 @@
           passport_url: passportUrl,
         })
 
+      // =========================
+      // DATABASE ERROR
+      // =========================
+
       if (error) {
         errorMessage.value
-          = error.code === '23505' && error.message.includes('email')
+          = error.code === '23505'
+            && error.message.includes('email')
             ? 'An application with this email already exists.'
             : error.message
 
         alert(errorMessage.value)
+
         return
       }
 
-      // Save the application email temporarily
-      // so the registration page knows which application
-      // was just submitted.
-      sessionStorage.setItem('admissionEmail', email.value.trim())
+      // =========================
+      // SAVE EMAIL FOR REGISTRATION
+      // =========================
 
-      // Go directly to student registration
+      sessionStorage.setItem(
+        'admissionEmail',
+        email.value.trim(),
+      )
+
+      // =========================
+      // GO TO STUDENT REGISTRATION
+      // =========================
+
       await router.push('/studentregister')
     } catch (error) {
       console.error('Unexpected error:', error)
-      alert(`Something went wrong: ${error.message}`)
+
+      alert(
+        `Something went wrong: ${error.message}`,
+      )
     }
   }
 
-  // Clear everything
+  // =========================
+  // CLEAR FORM
+  // =========================
+
   function clearForm () {
+    // Clear fields
     firstName.value = ''
     lastName.value = ''
     admissionNumber.value = ''
@@ -544,6 +487,7 @@
     guardianPhone.value = ''
     passport.value = []
 
+    // Clear errors
     firstNameError.value = ''
     lastNameError.value = ''
     genderError.value = ''

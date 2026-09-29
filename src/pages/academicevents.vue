@@ -29,13 +29,13 @@
             <v-spacer />
 
             <v-btn
-              :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-              @click="show = !show"
+              :icon="showRobotics ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+              @click="showRobotics = !showRobotics"
             />
           </v-card-actions>
 
           <v-expand-transition>
-            <div v-show="show">
+            <div v-show="showRobotics">
               <v-divider />
 
               <v-card-text>
@@ -73,13 +73,13 @@
             <v-spacer />
 
             <v-btn
-              :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-              @click="show = !show"
+              :icon="showSpelling ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+              @click="showSpelling = !showSpelling"
             />
           </v-card-actions>
 
           <v-expand-transition>
-            <div v-show="show">
+            <div v-show="showSpelling">
               <v-divider />
 
               <v-card-text>
@@ -108,13 +108,13 @@
             <v-spacer />
 
             <v-btn
-              :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-              @click="show = !show"
+              :icon="showLanguage ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+              @click="showLanguage = !showLanguage"
             />
           </v-card-actions>
 
           <v-expand-transition>
-            <div v-show="show">
+            <div v-show="showLanguage">
               <v-divider />
 
               <v-card-text>
@@ -144,13 +144,13 @@
             <v-spacer />
 
             <v-btn
-              :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-              @click="show = !show"
+              :icon="showExhibition ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+              @click="showExhibition = !showExhibition"
             />
           </v-card-actions>
 
           <v-expand-transition>
-            <div v-show="show">
+            <div v-show="showExhibition">
               <v-divider />
 
               <v-card-text>
@@ -170,14 +170,20 @@
 </template>
 
 <script>
-  import { ref } from 'vue'
   import AppNavbar from '@/components/AppNavbar.vue'
-  const show = ref(false)
 
   export default {
     components: {
       AppNavbar,
     },
-  }
 
+    data () {
+      return {
+        showRobotics: false,
+        showSpelling: false,
+        showLanguage: false,
+        showExhibition: false,
+      }
+    },
+  }
 </script>

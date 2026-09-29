@@ -36,13 +36,6 @@
       v-model="drawer"
       temporary
     >
-      <v-btn
-        class="mx-2"
-        color="primary"
-        href="/homepage"
-      >
-        Home
-      </v-btn>
 
       <v-list>
 
