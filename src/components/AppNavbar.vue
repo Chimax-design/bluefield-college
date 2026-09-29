@@ -16,7 +16,7 @@
             src="/bluefield-logo.png"
           >
 
-          <h1>Bluefield College</h1>
+          <h3>Bluefield College</h3>
         </div>
       </template>
 
