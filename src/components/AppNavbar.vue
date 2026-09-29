@@ -19,14 +19,6 @@
 
       <v-spacer />
 
-      <v-btn
-        class="mx-2"
-        color="primary"
-        href="/homepage"
-      >
-        Home
-      </v-btn>
-
       <!-- DESKTOP NAVIGATION -->
       <div class="desktop-nav d-none d-md-flex" />
 
@@ -43,6 +35,14 @@
       location="right"
       temporary
     >
+      <v-btn
+        class="mx-2"
+        color="primary"
+        href="/homepage"
+      >
+        Home
+      </v-btn>
+
       <v-list>
 
         <v-list-subheader>
