@@ -12,6 +12,7 @@
           <img
             alt="Bluefield College Logo"
             class="app-logo"
+            location="left"
             src="/bluefield-logo.png"
           >
         </div>
