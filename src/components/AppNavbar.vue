@@ -15,6 +15,8 @@
             location="left"
             src="/bluefield-logo.png"
           >
+
+          <h1>Bluefield College</h1>
         </div>
       </template>
 
