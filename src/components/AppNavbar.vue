@@ -12,7 +12,6 @@
           <img
             alt="Bluefield College Logo"
             class="app-logo"
-            location="left"
             src="/bluefield-logo.png"
           >
 
@@ -175,7 +174,8 @@
   display: flex;
   align-items: center;
   height: 90px;
-  padding-left: 10px;
+  padding-left: 0;
+  margin-left: -10px;
 }
 
 .app-logo {
