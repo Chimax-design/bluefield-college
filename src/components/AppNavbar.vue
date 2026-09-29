@@ -25,7 +25,7 @@
       <!-- MOBILE MENU BUTTON -->
       <v-app-bar-nav-icon
         class="d-flex d-md-none"
-        location="top"
+        location="left"
         @click="drawer = !drawer"
       />
     </v-app-bar>
