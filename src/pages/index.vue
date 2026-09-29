@@ -6,6 +6,7 @@
 </template>
 
     <script lang="ts" setup>
+  import AppNavbar from '@/components/AppNavbar.vue'
   import homepage from '@/components/homepage.vue'
   import aboutus from '@/pages/aboutus.vue'
   import academicevents from '@/pages/academicevents.vue'

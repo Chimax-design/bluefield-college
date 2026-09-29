@@ -6,6 +6,8 @@
 
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
+import AppNavbar from '@/components/AppNavbar.vue'
+import homepage from '@/components/homepage.vue'
 import Aboutus from '@/pages/aboutus.vue'
 import Academicevents from '@/pages/academicevents.vue'
 import administraoff from '@/pages/administraoff.vue'
@@ -41,6 +43,7 @@ import Update from '@/pages/update.vue'
 import upload from '@/pages/upload.vue'
 import vandm from '@/pages/vandm.vue'
 import whyus from '@/pages/whyus.vue'
+
 const routes = [
   {
     path: '/',
@@ -185,6 +188,14 @@ const routes = [
   {
     path: '/studentregister',
     component: registration,
+  },
+  {
+    path: '/AppNavbar',
+    component: AppNavbar,
+  },
+  {
+    path: '/homepage',
+    component: homepage,
   },
 ]
 
